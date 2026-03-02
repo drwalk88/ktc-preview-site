@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate | Keep The Covenant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- 
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  GIVEBUTTER SETUP INSTRUCTIONS                              ║
+  ║                                                              ║
+  ║  1. Log into your GiveButter dashboard                       ║
+  ║  2. Go to Settings → Developers → Widgets                   ║
+  ║  3. Copy the library script and replace the placeholder      ║
+  ║     script tag below (marked STEP 1)                         ║
+  ║  4. For the embedded form: go to your campaign →             ║
+  ║     Sharing → Widgets → Form → copy the widget ID            ║
+  ║     and replace "YOUR_CAMPAIGN_WIDGET_ID" below (STEP 2)     ║
+  ║  5. For the donate buttons: go to your campaign →            ║
+  ║     Sharing → Widgets → Button → copy the widget ID          ║
+  ║     and replace "YOUR_BUTTON_WIDGET_ID" below (STEP 3)       ║
+  ║  6. Register your domain in GiveButter Payment Settings      ║
+  ║     to enable Apple Pay on embeds                            ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+
+<!-- STEP 1: Add your GiveButter library script — get this from Settings → Developers → Widgets -->
+<!-- Once installed, uncomment the line below (replace YOUR_ACCOUNT_ID with your actual account ID): -->
+<!-- <script src="https://widgets.givebutter.com/latest.umd.cjs?acct=YOUR_ACCOUNT_ID&p=other"></script> -->
+
+<style>
+:root{--gold:#C8A84E;--gold-light:#E8D48B;--black:#0A0A0A;--black-soft:#1A1A1A;--black-card:#141414;--cream:#F5F0E8;--white:#FAFAF8;--text-muted:#888}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,168,78,0.15);transition:all 0.4s}.nav.scrolled{padding:0.6rem 2rem}.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);text-decoration:none}.nav-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.55rem;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-top:2px}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--cream);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.3s}.nav-links a:hover,.nav-links a.active{color:var(--gold)}.nav-links a.nav-cta{background:var(--gold);color:var(--black);padding:0.6rem 1.4rem;font-weight:700}.nav-links a.nav-cta:hover{background:var(--gold-light)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}.hamburger span{width:28px;height:2px;background:var(--gold)}
+.page-hero{padding:10rem 2rem 4rem;text-align:center;position:relative}.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:0.8rem}.page-hero p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(245,240,232,0.6)}
+.section-label{font-size:0.7rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+
+.donate-container{max-width:900px;margin:0 auto;padding:4rem 2rem}
+.donate-intro{text-align:center;margin-bottom:3rem}
+.donate-intro h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--white);margin-bottom:1rem}
+.donate-intro p{font-size:0.95rem;line-height:1.8;color:rgba(245,240,232,0.7);max-width:650px;margin:0 auto}
+
+/* Tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:3rem}
+.tier{background:var(--black-card);border:1px solid rgba(200,168,78,0.15);padding:2.5rem 2rem;text-align:center;transition:all 0.3s;position:relative}
+.tier:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 15px 50px rgba(0,0,0,0.3)}
+.tier.featured{border-color:var(--gold)}
+.tier.featured::before{content:'MOST IMPACT';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--black);padding:0.25rem 1rem;font-size:0.6rem;font-weight:700;letter-spacing:0.15em}
+.tier-amount{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--gold);margin-bottom:0.3rem}
+.tier-label{font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,240,232,0.5);margin-bottom:1rem}
+.tier p{font-size:0.85rem;line-height:1.6;color:rgba(245,240,232,0.6);margin-bottom:1.5rem}
+.tier-btn{display:block;width:100%;padding:0.9rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;text-align:center;transition:all 0.3s;cursor:pointer;border:none}
+.tier-btn-primary{background:var(--gold);color:var(--black)}.tier-btn-primary:hover{background:var(--gold-light)}
+.tier-btn-outline{background:transparent;color:var(--gold);border:2px solid var(--gold)}.tier-btn-outline:hover{background:var(--gold);color:var(--black)}
+
+/* GiveButter embed area */
+.givebutter-embed{background:var(--black-card);border:1px solid rgba(200,168,78,0.2);padding:2.5rem;margin-bottom:3rem;text-align:center}
+.givebutter-embed h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:0.5rem}
+.givebutter-embed>p{font-size:0.88rem;color:rgba(245,240,232,0.55);margin-bottom:2rem}
+.givebutter-placeholder{background:var(--black);border:2px dashed rgba(200,168,78,0.25);padding:3rem 2rem;margin:0 auto;max-width:600px}
+.givebutter-placeholder p{font-size:0.82rem;color:rgba(245,240,232,0.4);line-height:1.6;margin:0}
+.givebutter-placeholder code{background:rgba(200,168,78,0.1);color:var(--gold);padding:0.15rem 0.4rem;font-size:0.78rem;border-radius:2px}
+
+/* Impact */
+.impact-section{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-bottom:3rem}
+.impact-card{display:flex;gap:1rem;align-items:flex-start;background:var(--black-card);border:1px solid rgba(200,168,78,0.08);padding:1.5rem}
+.impact-icon{font-size:1.5rem;color:var(--gold);flex-shrink:0}
+.impact-card h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:0.3rem}
+.impact-card p{font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.6}
+
+/* Tax note */
+.tax-note{text-align:center;background:rgba(200,168,78,0.05);border:1px solid rgba(200,168,78,0.1);padding:2rem;font-size:0.85rem;color:rgba(245,240,232,0.6);line-height:1.7}
+.tax-note strong{color:var(--gold)}
+
+/* Payment methods */
+.payment-methods{text-align:center;margin:2rem 0 0;padding-top:1.5rem;border-top:1px solid rgba(200,168,78,0.08)}
+.payment-methods p{font-size:0.72rem;color:rgba(245,240,232,0.35);letter-spacing:0.1em;text-transform:uppercase;font-weight:500}
+
+.footer{background:var(--black);border-top:1px solid rgba(200,168,78,0.15);padding:3rem 2rem;margin-top:4rem}.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(245,240,232,0.35)}.footer-inner a{color:var(--gold);text-decoration:none}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.active{display:flex;flex-direction:column;position:fixed;inset:0;background:rgba(10,10,10,0.98);justify-content:center;align-items:center;gap:2rem;z-index:1000}.tiers{grid-template-columns:1fr}.impact-section{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:0.5rem;text-align:center}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">KEEP THE COVENANT<span>Marriage Enrichment</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html" class="active">Donate</a></li><li><a href="rsvp.html" class="nav-cta">RSVP</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero"><h1>Support Our Ministry</h1><p>Your generosity helps us strengthen marriages and families</p></section>
+
+<div class="donate-container">
+  <div class="donate-intro">
+    <div class="section-label">Give Today</div>
+    <h2>Invest in Marriages</h2>
+    <p>Keep The Covenant is a 501(c)(3) non-profit organization. Your tax-deductible donation directly supports free monthly enrichment classes, couple mentoring, romantic giveaways, and resources for couples in our community.</p>
+  </div>
+
+  <!-- DONATION TIERS (visual only — clicking opens GiveButter) -->
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-amount">$25</div>
+      <div class="tier-label">Supporter</div>
+      <p>Helps provide materials and supplies for one monthly enrichment class session.</p>
+      <!-- STEP 3: Replace onclick with givebutter-widget button, or link to your GiveButter campaign URL -->
+      <button class="tier-btn tier-btn-outline" onclick="openGiveButter(25)">Give $25</button>
+    </div>
+    <div class="tier featured">
+      <div class="tier-amount">$50</div>
+      <div class="tier-label">Champion</div>
+      <p>Covers resources for a couple going through our 6-week mentoring program.</p>
+      <button class="tier-btn tier-btn-primary" onclick="openGiveButter(50)">Give $50</button>
+    </div>
+    <div class="tier">
+      <div class="tier-amount">$100</div>
+      <div class="tier-label">Partner</div>
+      <p>Sponsors a couple for an entire quarter of enrichment classes, mentoring, and activities.</p>
+      <button class="tier-btn tier-btn-outline" onclick="openGiveButter(100)">Give $100</button>
+    </div>
+  </div>
+
+  <!-- GIVEBUTTER EMBEDDED FORM -->
+  <div class="givebutter-embed">
+    <h3>Give Any Amount</h3>
+    <p>Donate securely through our GiveButter fundraising page. Credit/debit, Venmo, PayPal, Cash App, Apple Pay, and more.</p>
+    
+    <!-- YOUR GIVEBUTTER FORM WIDGET — Widget ID: Lq3m8p -->
+    <!-- Once the library script is installed in the <head>, this will render your donation form automatically -->
+    <givebutter-widget id="Lq3m8p"></givebutter-widget>
+    
+    <!-- If the widget hasn't loaded yet (library not installed), show fallback link -->
+    <noscript>
+      <a href="https://givebutter.com/KTCTexas" target="_blank" class="btn-primary">Donate on GiveButter</a>
+    </noscript>
+
+    <div class="payment-methods">
+      <p>Accepted: Credit/Debit · Venmo · PayPal · Cash App · Apple Pay · Donor-Advised Funds</p>
+    </div>
+  </div>
+
+  <!-- IMPACT -->
+  <div class="section-label" style="text-align:center;">Your Impact</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);text-align:center;margin-bottom:2rem;">Where Your Donation Goes</h2>
+  <div class="impact-section">
+    <div class="impact-card"><div class="impact-icon">📖</div><div><h4>Free Classes</h4><p>Keeping our monthly enrichment classes free and accessible to all couples, regardless of financial situation.</p></div></div>
+    <div class="impact-card"><div class="impact-icon">🤝</div><div><h4>Mentoring Programs</h4><p>Training mentor couples and providing materials for our biblically based mentoring program.</p></div></div>
+    <div class="impact-card"><div class="impact-icon">🎁</div><div><h4>Romantic Giveaways</h4><p>Sponsoring date night prizes, romantic gifts, and special experiences for participating couples.</p></div></div>
+    <div class="impact-card"><div class="impact-icon">📚</div><div><h4>Resources &amp; Tools</h4><p>Developing and distributing free family planning tools, guides, and educational materials.</p></div></div>
+  </div>
+
+  <div class="tax-note">
+    <strong>Keep The Covenant is a registered 501(c)(3) non-profit organization.</strong><br>
+    All donations are tax-deductible to the extent allowed by law. You will receive an automatic donation receipt from GiveButter for your records.
+  </div>
+</div>
+
+<footer class="footer"><div class="footer-inner"><span>&copy; 2014–2026 Keep The Covenant.</span><span>501(c)(3) Non-Profit &middot; <a href="contact.html">Contact</a></span></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50));
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
+document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('active')));
+
+function openGiveButter(amount) {
+  // Direct link to your GiveButter campaign with pre-filled amount
+  window.open('https://givebutter.com/KTCTexas?amount=' + amount, '_blank');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Archive | Keep The Covenant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C8A84E;--gold-light:#E8D48B;--black:#0A0A0A;--black-soft:#1A1A1A;--black-card:#141414;--cream:#F5F0E8;--white:#FAFAF8;--text-muted:#888}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,168,78,0.15);transition:all 0.4s}.nav.scrolled{padding:0.6rem 2rem;background:rgba(10,10,10,0.97)}.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);text-decoration:none;letter-spacing:0.02em}.nav-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.55rem;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-top:2px}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--cream);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;position:relative;transition:color 0.3s}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width 0.3s}.nav-links a:hover{color:var(--gold)}.nav-links a:hover::after{width:100%}.nav-links a.nav-cta{background:var(--gold);color:var(--black);padding:0.6rem 1.4rem;font-weight:700;letter-spacing:0.1em;transition:all 0.3s}.nav-links a.nav-cta::after{display:none}.nav-links a.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}.hamburger span{width:28px;height:2px;background:var(--gold);transition:all 0.3s}
+.page-hero{padding:10rem 2rem 4rem;text-align:center;background:var(--black);position:relative}.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:0.8rem}.page-hero p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(245,240,232,0.6);max-width:600px;margin:0 auto}
+.section-label{font-size:0.7rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.btn-primary{display:inline-block;background:var(--gold);color:var(--black);padding:1rem 2.5rem;font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s}.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,168,78,0.3)}
+.btn-outline{display:inline-block;background:transparent;color:var(--gold);padding:0.8rem 2rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:2px solid var(--gold);transition:all 0.3s}.btn-outline:hover{background:var(--gold);color:var(--black)}
+
+/* Access banner */
+.access-banner{max-width:1100px;margin:0 auto;padding:0 2rem}
+.access-card{background:linear-gradient(135deg,rgba(200,168,78,0.08) 0%,rgba(200,168,78,0.03) 100%);border:1px solid rgba(200,168,78,0.25);padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:-2rem;position:relative;z-index:5}
+.access-card-text h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:0.5rem}
+.access-card-text p{font-size:0.88rem;line-height:1.7;color:rgba(245,240,232,0.65)}
+.access-card-text p strong{color:var(--gold)}
+.access-card-actions{display:flex;flex-direction:column;gap:0.8rem;align-items:flex-end}
+
+/* How it works */
+.how-it-works{max-width:1100px;margin:0 auto;padding:4rem 2rem}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
+.step{text-align:center;padding:1.5rem}
+.step-number{display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;background:var(--gold);color:var(--black);font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;margin-bottom:1rem}
+.step h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--white);margin-bottom:0.4rem}
+.step p{font-size:0.82rem;line-height:1.6;color:rgba(245,240,232,0.55)}
+
+/* Archive grid */
+.archive-section{max-width:1100px;margin:0 auto;padding:2rem 2rem 4rem}
+.archive-section>h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:0.5rem}
+.archive-section>p{font-size:0.9rem;color:rgba(245,240,232,0.55);margin-bottom:2rem}
+
+/* Year group */
+.year-group{margin-bottom:3rem}
+.year-label{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gold);margin-bottom:1.2rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(200,168,78,0.15);display:flex;align-items:center;gap:0.8rem}
+.year-label .count{font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.1em;color:rgba(245,240,232,0.4);text-transform:uppercase}
+
+.class-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.class-card{background:var(--black-card);border:1px solid rgba(200,168,78,0.1);padding:0;overflow:hidden;transition:all 0.3s;display:flex}
+.class-card:hover{border-color:rgba(200,168,78,0.3);transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+.class-icon{width:80px;min-height:100%;background:rgba(200,168,78,0.06);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;border-right:1px solid rgba(200,168,78,0.08)}
+.class-content{padding:1.5rem;flex:1}
+.class-content .class-date{font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.class-content h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--white);margin-bottom:0.4rem;line-height:1.3}
+.class-content p{font-size:0.8rem;line-height:1.6;color:rgba(245,240,232,0.5);margin-bottom:0.6rem}
+.class-tags{display:flex;gap:0.5rem;flex-wrap:wrap}
+.class-tag{font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.4);background:rgba(200,168,78,0.06);border:1px solid rgba(200,168,78,0.1);padding:0.2rem 0.6rem}
+
+/* What's included */
+.includes-section{background:var(--black-soft);padding:4rem 2rem}
+.includes-inner{max-width:1100px;margin:0 auto}
+.includes-inner>h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);text-align:center;margin-bottom:0.5rem}
+.includes-inner>p{text-align:center;font-size:0.9rem;color:rgba(245,240,232,0.55);margin-bottom:2rem}
+.includes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.include-card{background:var(--black-card);border:1px solid rgba(200,168,78,0.1);padding:1.8rem 1.5rem;text-align:center;transition:all 0.3s}
+.include-card:hover{border-color:rgba(200,168,78,0.25)}
+.include-icon{font-size:2rem;color:var(--gold);margin-bottom:0.8rem}
+.include-card h3{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--white);margin-bottom:0.3rem}
+.include-card p{font-size:0.78rem;line-height:1.6;color:rgba(245,240,232,0.5)}
+
+.footer{background:var(--black);border-top:1px solid rgba(200,168,78,0.15);padding:3rem 2rem}.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(245,240,232,0.35)}.footer-inner a{color:var(--gold);text-decoration:none}
+@media(max-width:1024px){.class-grid{grid-template-columns:1fr}.includes-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.active{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.98);justify-content:center;align-items:center;gap:2rem;z-index:1000}.access-card{grid-template-columns:1fr;text-align:center}.access-card-actions{align-items:center}.how-steps{grid-template-columns:1fr}.includes-grid{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:0.5rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">KEEP THE COVENANT<span>Marriage Enrichment</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li><li><a href="rsvp.html" class="nav-cta">RSVP</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero">
+  <h1>Class Archive</h1>
+  <p>Browse past enrichment class topics, recordings, and materials — then request access to the full content library</p>
+</section>
+
+<!-- ACCESS BANNER -->
+<div class="access-banner">
+  <div class="access-card">
+    <div class="access-card-text">
+      <h2>Access the Full Content Library</h2>
+      <p>All class recordings, materials, handouts, and discussion guides are stored in our <strong>Google Classroom</strong>. Browse the topics below, then request access to view the full content. Once approved, you'll have ongoing access to every past and future session.</p>
+    </div>
+    <div class="access-card-actions">
+      <a href="https://classroom.google.com/c/Njk3ODUxODA1NjVa" target="_blank" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.78rem;white-space:nowrap;">Request Access</a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-it-works">
+  <div class="section-label" style="text-align:center;">How It Works</div>
+  <div class="how-steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Browse Topics</h3>
+      <p>Preview all past class topics and descriptions below to see what's been covered.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Request Access</h3>
+      <p>Click the button above to visit our Google Classroom and request to join. We'll approve you promptly.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Watch &amp; Learn</h3>
+      <p>Once approved, access all recordings, handouts, and materials — past and future — anytime.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE LISTING -->
+<div class="archive-section">
+  <div class="section-label">Past Sessions</div>
+  <h2>Enrichment Class Topics</h2>
+  <p>Here's a look at the topics we've covered. This list is regularly updated as new classes are held. Request access above to view the full recordings and materials.</p>
+
+  <!-- 2025 -->
+  <div class="year-group">
+    <div class="year-label">2025 <span class="count">Recent Sessions</span></div>
+    <div class="class-grid">
+      <div class="class-card">
+        <div class="class-icon">💬</div>
+        <div class="class-content">
+          <div class="class-date">2025 Session</div>
+          <h3>Communication That Connects</h3>
+          <p>Practical strategies for communicating with your spouse in a way that builds understanding, trust, and emotional safety.</p>
+          <div class="class-tags"><span class="class-tag">Communication</span><span class="class-tag">Video</span><span class="class-tag">Handout</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">💰</div>
+        <div class="class-content">
+          <div class="class-date">2025 Session</div>
+          <h3>Marriage &amp; Money</h3>
+          <p>How to navigate finances as a team — budgeting, shared goals, reducing money-related conflict, and building financial unity.</p>
+          <div class="class-tags"><span class="class-tag">Finances</span><span class="class-tag">Video</span><span class="class-tag">Worksheet</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">🔥</div>
+        <div class="class-content">
+          <div class="class-date">2025 Session</div>
+          <h3>Keeping the Fire Alive</h3>
+          <p>Rediscovering romance and intimacy in your marriage — practical ideas for staying connected through every season.</p>
+          <div class="class-tags"><span class="class-tag">Intimacy</span><span class="class-tag">Video</span><span class="class-tag">Activity</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">⚔️</div>
+        <div class="class-content">
+          <div class="class-date">2025 Session</div>
+          <h3>Fighting Fair</h3>
+          <p>Turning conflict into an opportunity for growth. Learn how to disagree with respect, resolve issues, and move forward together.</p>
+          <div class="class-tags"><span class="class-tag">Conflict</span><span class="class-tag">Video</span><span class="class-tag">Discussion Guide</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2024 -->
+  <div class="year-group">
+    <div class="year-label">2024 <span class="count">Selected Sessions</span></div>
+    <div class="class-grid">
+      <div class="class-card">
+        <div class="class-icon">🙏</div>
+        <div class="class-content">
+          <div class="class-date">2024 Session</div>
+          <h3>Praying Together as a Couple</h3>
+          <p>Building a consistent prayer life as husband and wife — why it matters and how to make it a natural part of your routine.</p>
+          <div class="class-tags"><span class="class-tag">Faith</span><span class="class-tag">Video</span><span class="class-tag">Prayer Guide</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">❤️</div>
+        <div class="class-content">
+          <div class="class-date">2024 Session</div>
+          <h3>Love Languages in Action</h3>
+          <p>Understanding and applying the five love languages to show your spouse love in the way they receive it best.</p>
+          <div class="class-tags"><span class="class-tag">Love Languages</span><span class="class-tag">Video</span><span class="class-tag">Assessment</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">👨‍👩‍👧‍👦</div>
+        <div class="class-content">
+          <div class="class-date">2024 Session</div>
+          <h3>Parenting as Partners</h3>
+          <p>Staying united as a couple while navigating the joys and challenges of raising children together.</p>
+          <div class="class-tags"><span class="class-tag">Parenting</span><span class="class-tag">Video</span><span class="class-tag">Handout</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">🏠</div>
+        <div class="class-content">
+          <div class="class-date">2024 Session</div>
+          <h3>Building Your House on the Rock</h3>
+          <p>Establishing and maintaining a Christ-centered foundation for your marriage that weathers any storm.</p>
+          <div class="class-tags"><span class="class-tag">Faith</span><span class="class-tag">Video</span><span class="class-tag">Devotional</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Earlier Years -->
+  <div class="year-group">
+    <div class="year-label">2020–2023 <span class="count">Archive</span></div>
+    <div class="class-grid">
+      <div class="class-card">
+        <div class="class-icon">🎯</div>
+        <div class="class-content">
+          <div class="class-date">Archive</div>
+          <h3>Setting Goals as a Couple</h3>
+          <p>Vision casting for your marriage — aligning on shared goals for your faith, family, finances, and future together.</p>
+          <div class="class-tags"><span class="class-tag">Goals</span><span class="class-tag">Video</span><span class="class-tag">Worksheet</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">🤝</div>
+        <div class="class-content">
+          <div class="class-date">Archive</div>
+          <h3>The Art of Forgiveness</h3>
+          <p>Why forgiveness is essential to a thriving marriage and how to practice it — even when it's hard.</p>
+          <div class="class-tags"><span class="class-tag">Forgiveness</span><span class="class-tag">Video</span><span class="class-tag">Discussion Guide</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">📖</div>
+        <div class="class-content">
+          <div class="class-date">Archive</div>
+          <h3>God's Design for Marriage</h3>
+          <p>Exploring what Scripture teaches about the roles, purpose, and beauty of the marriage covenant.</p>
+          <div class="class-tags"><span class="class-tag">Biblical Foundation</span><span class="class-tag">Video</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">🔑</div>
+        <div class="class-content">
+          <div class="class-date">Archive</div>
+          <h3>Trust &amp; Transparency</h3>
+          <p>Building and rebuilding trust in your marriage through honesty, vulnerability, and consistent follow-through.</p>
+          <div class="class-tags"><span class="class-tag">Trust</span><span class="class-tag">Video</span><span class="class-tag">Activity</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:2rem;">
+    <p style="font-size:0.85rem;color:rgba(245,240,232,0.45);margin-bottom:1.5rem;">This is a preview of our topics. The full library includes additional sessions, recordings, and supplemental materials.</p>
+    <a href="https://classroom.google.com/c/Njk3ODUxODA1NjVa" target="_blank" class="btn-primary">Request Full Access</a>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<div class="includes-section">
+  <div class="includes-inner">
+    <div class="section-label" style="text-align:center;">What You Get</div>
+    <h2>Inside the Content Library</h2>
+    <p>Once approved, you'll have access to everything from every past session — and future ones too.</p>
+    <div class="includes-grid">
+      <div class="include-card">
+        <div class="include-icon">🎥</div>
+        <h3>Class Recordings</h3>
+        <p>Full video recordings of each enrichment session you can watch or rewatch anytime.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">📄</div>
+        <h3>Handouts &amp; Guides</h3>
+        <p>Downloadable materials, worksheets, and discussion guides from each class.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">💡</div>
+        <h3>Activity Prompts</h3>
+        <p>Take-home couple activities and exercises to apply what you've learned together.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-icon">📬</div>
+        <h3>Ongoing Updates</h3>
+        <p>New content is added after each class — your access stays active for all future sessions.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section style="text-align:center;background:var(--black);padding:5rem 2rem;">
+  <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--white);margin-bottom:1rem;">Don't Just Watch — Join Us Live</h2>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(245,240,232,0.6);margin-bottom:2rem;max-width:550px;margin-left:auto;margin-right:auto;">The archive is great for catching up, but there's nothing like being there in person. RSVP for our next free virtual class.</p>
+  <a href="rsvp.html" class="btn-primary">RSVP for Next Class</a>
+</section>
+
+<footer class="footer"><div class="footer-inner"><span>&copy; 2014–2026 Keep The Covenant. All rights reserved.</span><span>A 501(c)(3) Non-Profit &middot; <a href="contact.html">Contact Us</a></span></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
+document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('active')));
+</script>
+</body>
+</html>

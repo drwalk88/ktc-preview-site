@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services | Keep The Covenant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C8A84E;--gold-light:#E8D48B;--black:#0A0A0A;--black-soft:#1A1A1A;--black-card:#141414;--cream:#F5F0E8;--white:#FAFAF8;--text-muted:#888}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,168,78,0.15);transition:all 0.4s}.nav.scrolled{padding:0.6rem 2rem;background:rgba(10,10,10,0.97)}.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);text-decoration:none}.nav-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.55rem;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-top:2px}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--cream);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;position:relative;transition:color 0.3s}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width 0.3s}.nav-links a:hover{color:var(--gold)}.nav-links a:hover::after{width:100%}.nav-links a.nav-cta{background:var(--gold);color:var(--black);padding:0.6rem 1.4rem;font-weight:700;letter-spacing:0.1em}.nav-links a.nav-cta::after{display:none}.nav-links a.nav-cta:hover{background:var(--gold-light)}.nav-links a.active{color:var(--gold)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}.hamburger span{width:28px;height:2px;background:var(--gold)}
+.page-hero{padding:10rem 2rem 4rem;text-align:center;background:var(--black);position:relative}.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:0.8rem}.page-hero p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(245,240,232,0.6)}
+.section-label{font-size:0.7rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.btn-primary{display:inline-block;background:var(--gold);color:var(--black);padding:1rem 2.5rem;font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all 0.3s}.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{display:inline-block;background:transparent;color:var(--gold);padding:0.8rem 2rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:2px solid var(--gold);transition:all 0.3s}.btn-outline:hover{background:var(--gold);color:var(--black)}
+
+/* Service detail rows */
+.service-row{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:4rem 0;border-bottom:1px solid rgba(200,168,78,0.08)}
+.service-row:last-child{border-bottom:none}
+.service-row.reverse .service-row-image{order:2}
+.service-row.reverse .service-row-text{order:1}
+.service-row-image{border:1px solid rgba(200,168,78,0.15);aspect-ratio:16/10;overflow:hidden}
+.service-row-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.service-row:hover .service-row-image img{transform:scale(1.03)}
+.service-row-text h2{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--white);margin-bottom:0.5rem}
+.service-row-text .service-tag{font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem}
+.service-row-text p{font-size:0.92rem;line-height:1.8;color:rgba(245,240,232,0.7);margin-bottom:1rem}
+.service-row-text ul{list-style:none;margin-bottom:1.5rem}
+.service-row-text ul li{font-size:0.88rem;color:rgba(245,240,232,0.65);padding:0.4rem 0 0.4rem 1.2rem;position:relative}
+.service-row-text ul li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.7rem;top:0.5rem}
+
+.footer{background:var(--black);border-top:1px solid rgba(200,168,78,0.15);padding:3rem 2rem}.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(245,240,232,0.35)}.footer-inner a{color:var(--gold);text-decoration:none}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.active{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.98);justify-content:center;align-items:center;gap:2rem;z-index:1000}.service-row{grid-template-columns:1fr;gap:2rem}.service-row.reverse .service-row-image{order:0}.service-row.reverse .service-row-text{order:0}.footer-inner{flex-direction:column;gap:0.5rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">KEEP THE COVENANT<span>Marriage Enrichment</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html" class="active">Services</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li><li><a href="rsvp.html" class="nav-cta">RSVP</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero"><h1>Our Services</h1><p>Everything we offer to help your marriage flourish</p></section>
+
+<section style="padding:4rem 2rem;">
+
+  <!-- Monthly Enrichment Classes -->
+  <div class="service-row">
+    <div class="service-row-image"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=700&q=80" alt="Monthly enrichment class"></div>
+    <div class="service-row-text">
+      <div class="service-tag">Free · Virtual</div>
+      <h2>Monthly Enrichment Classes</h2>
+      <p>Our signature offering — free virtual classes held 8–10 times per year. Each session covers a key marriage topic with practical skills you can apply immediately. Expect lively discussions, couple activities, and a welcoming community of couples investing in their relationship.</p>
+      <ul>
+        <li>Fun activities, games, and icebreakers</li>
+        <li>Biblically grounded lessons on real marriage topics</li>
+        <li>Small group discussions with other couples</li>
+        <li>Raffles, romantic giveaways, and community</li>
+      </ul>
+      <a href="service-enrichment-classes.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Couple Mentoring -->
+  <div class="service-row reverse">
+    <div class="service-row-image"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=700&q=80" alt="Couple mentoring"></div>
+    <div class="service-row-text">
+      <div class="service-tag">6–10 Weeks · One-on-One</div>
+      <h2>Couple Mentoring</h2>
+      <p>Marriage mentoring is for couples who want to strengthen their relationship — whether your marriage is strong or struggling. We've partnered with Love and Respect and Dare to Be Different to offer individual mentoring led by trained mentor couples.</p>
+      <ul>
+        <li>Meet with a trained mentor couple weekly for 6–10 weeks</li>
+        <li>Each session is approximately 1.5 hours</li>
+        <li>Biblically based approach developed by founder Matt Loehr</li>
+        <li>In-depth survey to identify areas needing strengthening</li>
+      </ul>
+      <a href="service-mentoring.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Date Night Challenges -->
+  <div class="service-row">
+    <div class="service-row-image"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="Date night"></div>
+    <div class="service-row-text">
+      <div class="service-tag">Monthly · Fun</div>
+      <h2>Date Night Challenges</h2>
+      <p>Creative, fun date ideas and challenges designed to keep the romance alive and intentional in your marriage. Because dating shouldn't stop at "I do." Each month brings a new challenge to strengthen your connection and create lasting memories together.</p>
+      <a href="service-date-nights.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Pillow Talk -->
+  <div class="service-row reverse">
+    <div class="service-row-image"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80" alt="Conversation"></div>
+    <div class="service-row-text">
+      <div class="service-tag">At Home · Intimate</div>
+      <h2>Pillow Talk</h2>
+      <p>Guided conversation starters designed to deepen intimacy and communication between you and your spouse. These thoughtful prompts help you connect on a deeper level from the comfort of your own home — fostering meaningful dialogue that goes beyond the day-to-day.</p>
+      <a href="service-pillow-talk.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">Learn More</a>
+    </div>
+  </div>
+
+  <!-- You & Me Time -->
+  <div class="service-row">
+    <div class="service-row-image"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="Couple time"></div>
+    <div class="service-row-text">
+      <div class="service-tag">Weekly · Intentional</div>
+      <h2>You &amp; Me Time</h2>
+      <p>Structured activities and prompts designed to carve out quality time in your busy schedule. Intentional moments that foster deeper connection, build shared experiences, and keep your marriage a top priority week after week.</p>
+      <a href="service-you-and-me-time.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Pre/Post-Marital Counseling -->
+  <div class="service-row reverse">
+    <div class="service-row-image"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=700&q=80" alt="Counseling"></div>
+    <div class="service-row-text">
+      <div class="service-tag">Referral Service</div>
+      <h2>Pre &amp; Post-Marital Counseling</h2>
+      <p>Preparing for marriage? We strongly recommend premarital counseling. Many churches provide it for free or at a nominal cost, and some Texas counties even discount marriage license fees upon completion of a valid counseling program.</p>
+      <p>Already married and need a tune-up? We also connect couples with post-marital counseling services that compare previous expectations with current needs.</p>
+      <a href="service-counseling.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">Learn More</a>
+    </div>
+  </div>
+
+  <!-- Licensed Counseling -->
+  <div class="service-row">
+    <div class="service-row-image"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="Professional counseling"></div>
+    <div class="service-row-text">
+      <div class="service-tag">Professional · Licensed</div>
+      <h2>Licensed Counseling</h2>
+      <p>Sometimes unresolved issues surface and create challenges in marriage. Poor communication, financial stress, and intimacy struggles are among the leading causes of divorce. When your marriage needs professional support, we connect you with trusted Christian licensed professional counselors in the Austin area.</p>
+      <a href="service-licensed-counseling.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">Learn More</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section style="text-align:center;background:var(--black-soft);padding:5rem 2rem;">
+  <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--white);margin-bottom:1rem;">Not Sure Where to Start?</h2>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(245,240,232,0.6);margin-bottom:2rem;">Reach out and we'll help you find the right support for where you are.</p>
+  <a href="contact.html" class="btn-primary">Contact Us</a>
+</section>
+
+<div style="text-align:center;padding:2rem;background:var(--black);border-top:1px solid rgba(200,168,78,0.06);"><p style="font-size:0.72rem;color:rgba(245,240,232,0.3);max-width:700px;margin:0 auto;line-height:1.7;letter-spacing:0.02em;">Keep The Covenant is a Bible-based ministry. We believe marriage is a sacred covenant between one man and one woman, as designed by God, with the primary purpose of bringing Him glory. We welcome all who seek to strengthen their marriage within this biblical framework.</p></div>
+<footer class="footer"><div class="footer-inner"><span>&copy; 2014–2026 Keep The Covenant. All rights reserved.</span><span>A 501(c)(3) Non-Profit &middot; <a href="contact.html">Contact Us</a></span></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
+document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('active')));
+</script>
+</body>
+</html>

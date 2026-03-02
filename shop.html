@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | Keep The Covenant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C8A84E;--gold-light:#E8D48B;--black:#0A0A0A;--black-soft:#1A1A1A;--black-card:#141414;--cream:#F5F0E8;--white:#FAFAF8;--text-muted:#888}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,168,78,0.15);transition:all 0.4s}.nav.scrolled{padding:0.6rem 2rem;background:rgba(10,10,10,0.97)}.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);text-decoration:none;letter-spacing:0.02em}.nav-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.55rem;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-top:2px}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--cream);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;position:relative;transition:color 0.3s}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width 0.3s}.nav-links a:hover{color:var(--gold)}.nav-links a:hover::after{width:100%}.nav-links a.nav-cta{background:var(--gold);color:var(--black);padding:0.6rem 1.4rem;font-weight:700;letter-spacing:0.1em;transition:all 0.3s}.nav-links a.nav-cta::after{display:none}.nav-links a.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}.nav-links a.active{color:var(--gold)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}.hamburger span{width:28px;height:2px;background:var(--gold);transition:all 0.3s}
+.page-hero{padding:10rem 2rem 4rem;text-align:center;background:var(--black);position:relative}.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:0.8rem}.page-hero p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(245,240,232,0.6);max-width:600px;margin:0 auto}
+.section-label{font-size:0.7rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.btn-primary{display:inline-block;background:var(--gold);color:var(--black);padding:1rem 2.5rem;font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s}.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,168,78,0.3)}
+.btn-outline{display:inline-block;background:transparent;color:var(--gold);padding:0.8rem 2rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:2px solid var(--gold);transition:all 0.3s}.btn-outline:hover{background:var(--gold);color:var(--black)}
+
+.container{max-width:1100px;margin:0 auto;padding:4rem 2rem}
+
+/* Product preview grid */
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:2rem 0 3rem}
+.product-card{background:var(--black-card);border:1px solid rgba(200,168,78,0.1);overflow:hidden;transition:all 0.3s}
+.product-card:hover{border-color:rgba(200,168,78,0.3);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.product-img{aspect-ratio:1/1;background:var(--black-soft);display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(200,168,78,0.2);overflow:hidden;position:relative}
+.product-img::after{content:'Coming Soon';position:absolute;bottom:0;left:0;right:0;padding:0.5rem;background:rgba(200,168,78,0.9);color:var(--black);font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-align:center}
+.product-body{padding:1.5rem}
+.product-body h3{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--white);margin-bottom:0.3rem}
+.product-body p{font-size:0.8rem;color:rgba(245,240,232,0.5);line-height:1.5}
+
+/* Mission box */
+.mission-box{background:linear-gradient(135deg,rgba(200,168,78,0.08) 0%,rgba(200,168,78,0.03) 100%);border:1px solid rgba(200,168,78,0.2);padding:3rem;text-align:center;margin:3rem 0}
+.mission-box h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);margin-bottom:0.8rem}
+.mission-box p{font-size:0.92rem;line-height:1.8;color:rgba(245,240,232,0.65);max-width:650px;margin:0 auto 1.5rem}
+.mission-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;max-width:700px;margin-left:auto;margin-right:auto}
+.pillar{text-align:center}
+.pillar-icon{font-size:1.5rem;color:var(--gold);margin-bottom:0.5rem}
+.pillar h4{font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--white);margin-bottom:0.2rem}
+.pillar p{font-size:0.75rem;color:rgba(245,240,232,0.45)}
+
+/* Printify embed area */
+.store-embed{background:var(--black-card);border:1px solid rgba(200,168,78,0.15);padding:3rem;text-align:center;margin:2rem 0}
+.store-embed h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.8rem}
+.store-embed p{font-size:0.88rem;color:rgba(245,240,232,0.55);margin-bottom:1.5rem;line-height:1.7}
+
+.footer{background:var(--black);border-top:1px solid rgba(200,168,78,0.15);padding:3rem 2rem}.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(245,240,232,0.35)}.footer-inner a{color:var(--gold);text-decoration:none}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.active{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.98);justify-content:center;align-items:center;gap:2rem;z-index:1000}.product-grid{grid-template-columns:1fr 1fr}.mission-pillars{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:0.5rem;text-align:center}}
+@media(max-width:480px){.product-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">KEEP THE COVENANT<span>Marriage Enrichment</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li><li><a href="shop.html" class="active">Shop</a></li><li><a href="donate.html">Donate</a></li><li><a href="rsvp.html" class="nav-cta">RSVP</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero">
+  <h1>Shop KTC</h1>
+  <p>Wear your covenant proudly — every purchase supports the ministry</p>
+</section>
+
+<div class="container">
+
+  <div class="section-label" style="text-align:center;">Coming Soon</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);text-align:center;margin-bottom:0.5rem;">KTC Merchandise</h2>
+  <p style="font-size:0.92rem;color:rgba(245,240,232,0.55);text-align:center;max-width:600px;margin:0 auto 2rem;">Rep your marriage and support our ministry at the same time. Our online store features apparel and accessories — designed with love, printed on demand, and shipped directly to you.</p>
+
+  <!-- PRODUCT PREVIEW -->
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-img">👕</div>
+      <div class="product-body"><h3>KTC T-Shirts</h3><p>Comfortable, stylish tees with Keep The Covenant branding.</p></div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">🧢</div>
+      <div class="product-body"><h3>Hats &amp; Caps</h3><p>Classic and snapback styles with the KTC logo.</p></div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">☕</div>
+      <div class="product-body"><h3>Coffee Mugs</h3><p>Start your morning together with a KTC mug for you and your spouse.</p></div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">👜</div>
+      <div class="product-body"><h3>Tote Bags</h3><p>Carry your materials in style with a branded tote bag.</p></div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">📓</div>
+      <div class="product-body"><h3>Journals</h3><p>Devotional and couple journals with the KTC brand.</p></div>
+    </div>
+    <div class="product-card">
+      <div class="product-img">🎨</div>
+      <div class="product-body"><h3>More Designs</h3><p>New items added regularly — check back often!</p></div>
+    </div>
+  </div>
+
+  <!-- PRINTIFY STORE EMBED -->
+  <div class="store-embed">
+    <h3>Visit Our Store</h3>
+    <p>Our merchandise is powered by Printify — printed on demand and shipped directly to your door. Click below to browse the full collection.</p>
+    
+    <!-- 
+      PRINTIFY INTEGRATION OPTIONS:
+      
+      Option 1 (Recommended): Link to your Printify Pop-Up Store
+      Once you create your Printify store, replace the # below with your store URL.
+      Example: https://keepthecovenant.printify.me/
+      
+      Option 2: Embed your Printify store using their embed widget
+      Printify offers embeddable store widgets you can add here.
+      
+      Option 3: Connect Printify to a Shopify/Etsy store and link there
+    -->
+    <a href="#" class="btn-primary" id="storeBtn">Browse the Store</a>
+    <p style="margin-top:1.5rem;font-size:0.75rem;color:rgba(245,240,232,0.35);">Store launching soon — follow us on social media for the announcement!</p>
+  </div>
+
+  <!-- MISSION BOX -->
+  <div class="mission-box">
+    <div class="section-label">Every Purchase Makes a Difference</div>
+    <h2>Where Your Money Goes</h2>
+    <p>100% of proceeds from the KTC shop go directly back into our ministry — funding free enrichment classes, couple mentoring, romantic giveaways, and resources for couples in our community.</p>
+    <div class="mission-pillars">
+      <div class="pillar"><div class="pillar-icon">📖</div><h4>Free Classes</h4><p>Keeping enrichment accessible to all</p></div>
+      <div class="pillar"><div class="pillar-icon">🤝</div><h4>Mentoring</h4><p>Training and equipping mentor couples</p></div>
+      <div class="pillar"><div class="pillar-icon">🎁</div><h4>Giveaways</h4><p>Sponsoring romantic date experiences</p></div>
+    </div>
+  </div>
+
+</div>
+
+<section style="text-align:center;background:var(--black-soft);padding:4rem 2rem;">
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:1rem;">Prefer to Give Directly?</h2>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(245,240,232,0.6);margin-bottom:2rem;">Your tax-deductible donation goes straight to strengthening marriages.</p>
+  <a href="donate.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">Donate Now</a>
+</section>
+
+<footer class="footer"><div class="footer-inner"><span>&copy; 2014–2026 Keep The Covenant. All rights reserved.</span><span>A 501(c)(3) Non-Profit &middot; <a href="contact.html">Contact Us</a></span></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
+document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('active')));
+document.getElementById('storeBtn').addEventListener('click',function(e){
+  if(this.getAttribute('href')==='#'){e.preventDefault();alert('The KTC store is coming soon! Follow us on social media for the launch announcement.')}
+});
+</script>
+</body>
+</html>
