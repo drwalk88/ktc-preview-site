@@ -147,7 +147,21 @@ section{padding:6rem 2rem}
 
 /* RESPONSIVE */
 @media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}.impact-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.active{display:flex;flex-direction:column;position:fixed;inset:0;background:rgba(10,10,10,0.98);justify-content:center;align-items:center;gap:2rem;z-index:1000}.nav-links.active a{font-size:1.1rem}.mission-grid,.facilitators-inner{grid-template-columns:1fr;gap:2rem}.facilitators-image{order:0}.services-grid,.events-grid{grid-template-columns:1fr}.impact-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:0.5rem;text-align:center}}
+/* Mobile Menu */
+@media(max-width:768px){
+.nav{padding:0.8rem 1.2rem}
+.nav-logo{font-size:1.1rem}
+.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.99);flex-direction:column;justify-content:center;align-items:center;gap:1.2rem;z-index:1100;padding:2rem;overflow-y:auto}
+.nav-links.active{display:flex}
+.nav-links a{font-size:1rem;letter-spacing:0.12em;padding:0.5rem 0}
+.nav-links a::after{display:none}
+.nav-links a.nav-cta{margin-top:0.5rem;padding:0.8rem 2rem;font-size:0.85rem}
+.hamburger{display:flex;z-index:1200}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mission-grid,.facilitators-inner{grid-template-columns:1fr;gap:2rem}.facilitators-image{order:0}.services-grid,.events-grid{grid-template-columns:1fr}.impact-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:0.5rem;text-align:center}
+}.hamburger{display:flex}.nav-links.active{display:flex;flex-direction:column;position:fixed;inset:0;background:rgba(10,10,10,0.98);justify-content:center;align-items:center;gap:2rem;z-index:1000}.nav-links.active a{font-size:1.1rem}.mission-grid,.facilitators-inner{grid-template-columns:1fr;gap:2rem}.facilitators-image{order:0}.services-grid,.events-grid{grid-template-columns:1fr}.impact-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:0.5rem;text-align:center}}
 </style>
 </head>
 <body>
@@ -276,11 +290,11 @@ section{padding:6rem 2rem}
     <div class="facilitators-text">
       <div class="section-label">Our Leadership</div>
       <h2>Led by Three Dedicated Couples</h2>
-      <p>Founded in 2014 by Dr. Christopher &amp; Shaneen Harvey, Keep The Covenant is now led by three couples united by faith and a shared calling to strengthen marriages. Together with Melvin Jakaiya &amp; Melvin Wilsonamp; Jakaiya Wilson and Dominique &amp; Ariane Walker, our team brings decades of combined experience in ministry, education, and mentoring.</p>
+      <p>Founded in 2014 by Dr. Christopher &amp; Shaneen Harvey, Keep The Covenant is now led by three couples united by faith and a shared calling to strengthen marriages. Together with Melvin &amp; Jakaiya Wilson and Dominique &amp; Ariane Walker, our team brings decades of combined experience in ministry, education, and mentoring.</p>
       <div class="credentials">
         <div class="credential"><span class="credential-icon">✦</span><span><strong>Dr. Chris &amp; Shaneen Harvey</strong> — Founders &amp; Lead Facilitators</span></div>
         <div class="credential"><span class="credential-icon">✦</span><span><strong>Dominique &amp; Ariane Walker</strong> — Ministry Leaders</span></div>
-        <div class="credential"><span class="credential-icon">✦</span><span><strong>Melvin Jakaiya &amp; Melvin Wilsonamp; Jakaiya Wilson</strong> — Ministry Leaders</span></div>
+        <div class="credential"><span class="credential-icon">✦</span><span><strong>Melvin &amp; Jakaiya Wilson</strong> — Ministry Leaders</span></div>
       </div>
       <a href="about.html" class="btn-outline" style="margin-top:1.5rem;padding:0.7rem 1.8rem;font-size:0.75rem;">Meet the Full Team</a>
     </div>
@@ -301,7 +315,7 @@ section{padding:6rem 2rem}
         </div>
         <div class="carousel-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 0.8s ease;">
           <div style="width:100%;height:100%;background:var(--black-card);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;">
-            <span style="font-family:'Montserrat',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);">[ Melvin Jakaiya &amp; Melvin Wilsonamp; Jakaiya Wilson Photo ]</span>
+            <span style="font-family:'Montserrat',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);">[ Melvin &amp; Jakaiya Wilson Photo ]</span>
             <span style="font-size:0.65rem;color:var(--gold);font-weight:600;letter-spacing:0.1em;">MINISTRY LEADERS</span>
           </div>
         </div>
@@ -380,9 +394,19 @@ section{padding:6rem 2rem}
 </footer>
 
 <script>
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50));
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('active')}
-document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('active')));
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+function toggleMenu(){
+  const nav=document.getElementById('navLinks');
+  const hamburger=document.querySelector('.hamburger');
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('open');
+  document.body.style.overflow=nav.classList.contains('active')?'hidden':'';
+}
+document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('active');
+  document.querySelector('.hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}));
 const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='translateY(0)'}}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.service-card,.event-card,.mission-grid,.facilitators-inner,.impact-stat').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el)});
 // Team photo carousel

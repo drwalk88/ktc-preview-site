@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Team | Keep The Covenant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C8A84E;--gold-light:#E8D48B;--black:#0A0A0A;--black-soft:#1A1A1A;--black-card:#141414;--cream:#F5F0E8;--white:#FAFAF8;--text-muted:#888}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,168,78,0.15);transition:all 0.4s}.nav.scrolled{padding:0.6rem 2rem;background:rgba(10,10,10,0.97)}.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);text-decoration:none;letter-spacing:0.02em}.nav-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.55rem;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-top:2px}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--cream);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;position:relative;transition:color 0.3s}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width 0.3s}.nav-links a:hover{color:var(--gold)}.nav-links a:hover::after{width:100%}.nav-links a.nav-cta{background:var(--gold);color:var(--black);padding:0.6rem 1.4rem;font-weight:700;letter-spacing:0.1em;transition:all 0.3s}.nav-links a.nav-cta::after{display:none}.nav-links a.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}.hamburger span{width:28px;height:2px;background:var(--gold);transition:all 0.3s}
+.page-hero{padding:10rem 2rem 4rem;text-align:center;background:var(--black);position:relative}.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:0.8rem}.page-hero p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(245,240,232,0.6);max-width:600px;margin:0 auto}
+.section-label{font-size:0.7rem;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+
+/* Intro */
+.intro{max-width:800px;margin:0 auto;padding:4rem 2rem 2rem;text-align:center}
+.intro h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:1rem}
+.intro p{font-size:0.95rem;line-height:1.85;color:rgba(245,240,232,0.7);margin-bottom:1rem}
+
+/* Roles grid */
+.roles-section{max-width:1100px;margin:0 auto;padding:2rem 2rem 4rem}
+.roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.role-card{background:var(--black-card);border:1px solid rgba(200,168,78,0.1);padding:2rem;transition:all 0.3s}
+.role-card:hover{border-color:rgba(200,168,78,0.3);transform:translateY(-3px)}
+.role-icon{font-size:2rem;margin-bottom:1rem;color:var(--gold)}
+.role-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:0.5rem}
+.role-card p{font-size:0.82rem;line-height:1.7;color:rgba(245,240,232,0.55)}
+
+/* What we look for */
+.qualities-section{background:var(--black-soft);padding:4rem 2rem}
+.qualities-inner{max-width:900px;margin:0 auto}
+.qualities-inner h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);text-align:center;margin-bottom:0.5rem}
+.qualities-inner>p{text-align:center;font-size:0.9rem;color:rgba(245,240,232,0.55);margin-bottom:2.5rem}
+.qualities-list{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.quality{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.2rem;background:var(--black-card);border:1px solid rgba(200,168,78,0.08)}
+.quality-icon{color:var(--gold);font-size:0.85rem;margin-top:2px;flex-shrink:0}
+.quality h4{font-size:0.88rem;color:var(--white);margin-bottom:0.2rem}
+.quality p{font-size:0.78rem;color:rgba(245,240,232,0.5);line-height:1.5}
+
+/* Form */
+.form-section{max-width:750px;margin:0 auto;padding:4rem 2rem}
+.form-card{background:var(--black-card);border:1px solid rgba(200,168,78,0.2);padding:3rem}
+.form-card h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);margin-bottom:0.5rem;text-align:center}
+.form-card>p{font-size:0.88rem;color:rgba(245,240,232,0.5);text-align:center;margin-bottom:2.5rem;line-height:1.6}
+.form-group{margin-bottom:1.5rem}
+.form-group label{display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.9rem 1rem;background:var(--black);border:1px solid rgba(200,168,78,0.2);color:var(--cream);font-family:'Montserrat',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.3s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group select option{background:var(--black);color:var(--cream)}
+.form-group textarea{min-height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.checkbox-group{display:flex;flex-direction:column;gap:0.6rem;margin-top:0.3rem}
+.checkbox-group label{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.85rem;color:rgba(245,240,232,0.65);letter-spacing:0;text-transform:none;font-weight:400;cursor:pointer;line-height:1.4}
+.checkbox-group input[type="checkbox"]{margin-top:2px;accent-color:var(--gold);width:16px;height:16px;flex-shrink:0}
+.btn-submit{display:block;width:100%;background:var(--gold);color:var(--black);padding:1.1rem 2.5rem;font-family:'Montserrat',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s;margin-top:0.5rem}.btn-submit:hover{background:var(--gold-light)}
+
+/* Success */
+.form-success{display:none;text-align:center;padding:2rem 0}
+.form-success .check{font-size:3rem;margin-bottom:1rem}
+.form-success h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:0.5rem}
+.form-success p{font-size:0.9rem;color:rgba(245,240,232,0.6);line-height:1.7}
+
+.footer{background:var(--black);border-top:1px solid rgba(200,168,78,0.15);padding:3rem 2rem}.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(245,240,232,0.35)}.footer-inner a{color:var(--gold);text-decoration:none}
+/* Mobile Menu */
+@media(max-width:768px){
+.nav{padding:0.8rem 1.2rem}
+.nav-logo{font-size:1.1rem}
+.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.99);flex-direction:column;justify-content:center;align-items:center;gap:1.2rem;z-index:1100;padding:2rem;overflow-y:auto}
+.nav-links.active{display:flex}
+.nav-links a{font-size:1rem;letter-spacing:0.12em;padding:0.5rem 0}
+.nav-links a::after{display:none}
+.nav-links a.nav-cta{margin-top:0.5rem;padding:0.8rem 2rem;font-size:0.85rem}
+.hamburger{display:flex;z-index:1200}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.roles-grid{grid-template-columns:1fr}.qualities-list{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:0.5rem;text-align:center}
+}.hamburger{display:flex}.nav-links.active{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.98);justify-content:center;align-items:center;gap:2rem;z-index:1000}.roles-grid{grid-template-columns:1fr}.qualities-list{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.footer-inner{flex-direction:column;gap:0.5rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">KEEP THE COVENANT<span>Marriage Enrichment</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li><li><a href="rsvp.html" class="nav-cta">RSVP</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero">
+  <h1>Join the Team</h1>
+  <p>Use your gifts to strengthen marriages and serve couples in our community</p>
+</section>
+
+<!-- INTRO -->
+<div class="intro">
+  <div class="section-label">Serve With Us</div>
+  <h2>Be Part of Something Bigger</h2>
+  <p>Keep The Covenant exists because faithful people choose to give their time, talents, and hearts to this ministry. Whether you're looking to serve behind the scenes, lead alongside our team, or use a specific gift God has given you — there's a place for you here.</p>
+  <p>We're a growing ministry with a growing need for passionate couples and individuals who believe in the power of biblical marriage. If you feel called to invest in marriages and families, we'd love to hear from you.</p>
+</div>
+
+<!-- VOLUNTEER ROLES -->
+<div class="roles-section">
+  <div class="section-label" style="text-align:center;">Opportunities</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);text-align:center;">Ways to Get Involved</h2>
+  <div class="roles-grid">
+    <div class="role-card">
+      <div class="role-icon">🤝</div>
+      <h3>Mentor Couple</h3>
+      <p>Walk alongside a couple through our 6–10 week biblically based mentoring program. Training is provided through our partnership with Love and Respect and Dare to Be Different.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-icon">🎓</div>
+      <h3>Class Facilitator</h3>
+      <p>Help lead or co-facilitate our monthly virtual enrichment classes. You'll guide discussions, lead activities, and create a welcoming environment for couples to learn and grow.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-icon">📱</div>
+      <h3>Social Media &amp; Content</h3>
+      <p>Help us create and share marriage encouragement, event promotions, and ministry highlights across our social media platforms. Photography and design skills are a plus.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-icon">🎉</div>
+      <h3>Events &amp; Outings</h3>
+      <p>Help plan, coordinate, and execute our couples outings, date night events, and special gatherings. Great for people who love creating memorable experiences.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-icon">🙏</div>
+      <h3>Prayer Team</h3>
+      <p>Commit to praying regularly for our ministry, our couples, and the marriages in our community. Receive prayer requests and updates to guide your intercession.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-icon">💡</div>
+      <h3>General Volunteer</h3>
+      <p>Not sure where you fit? That's okay. Tell us about your gifts and interests, and we'll find a way to plug you in where you'll make the greatest impact.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE LOOK FOR -->
+<div class="qualities-section">
+  <div class="qualities-inner">
+    <div class="section-label" style="text-align:center;">What We Look For</div>
+    <h2>Heart Over Resume</h2>
+    <p>You don't need a degree in counseling or years of ministry experience. What matters most is a heart for God and a desire to see marriages thrive.</p>
+    <div class="qualities-list">
+      <div class="quality">
+        <span class="quality-icon">✦</span>
+        <div><h4>A Heart for Marriage</h4><p>You believe in the power of biblical marriage and want to help others experience it.</p></div>
+      </div>
+      <div class="quality">
+        <span class="quality-icon">✦</span>
+        <div><h4>A Growing Faith</h4><p>You are actively pursuing your own walk with Christ and growing in your relationship with God.</p></div>
+      </div>
+      <div class="quality">
+        <span class="quality-icon">✦</span>
+        <div><h4>Reliability &amp; Commitment</h4><p>You show up when you say you will and follow through on what you've committed to.</p></div>
+      </div>
+      <div class="quality">
+        <span class="quality-icon">✦</span>
+        <div><h4>A Teachable Spirit</h4><p>You're open to learning, growing, and receiving feedback as part of a team.</p></div>
+      </div>
+      <div class="quality">
+        <span class="quality-icon">✦</span>
+        <div><h4>Respect for Confidentiality</h4><p>Ministry involves sensitive topics. Discretion and trust are essential.</p></div>
+      </div>
+      <div class="quality">
+        <span class="quality-icon">✦</span>
+        <div><h4>A Servant's Heart</h4><p>You're motivated by love and a desire to serve — not recognition or platform.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APPLICATION FORM -->
+<div class="form-section">
+  <div class="form-card">
+    <div class="section-label" style="text-align:center;">Apply Now</div>
+    <h2>Team Interest Form</h2>
+    <p>Fill out the form below and a member of our leadership team will reach out to discuss how you can get involved. We'd love to have you.</p>
+
+    <!--
+      FORM SETUP: Same as RSVP — use Formspree.
+      1. Create a form at formspree.io
+      2. Set notification email to info@keepthecovenant.com
+      3. Replace YOUR_FORMSPREE_ENDPOINT below with your endpoint
+    -->
+    <form id="teamForm" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST">
+      <input type="hidden" name="_subject" value="New Team Interest — Keep The Covenant">
+
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="Your first name" required></div>
+        <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Your last name" required></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com" required></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="(555) 555-5555"></div>
+
+      <div class="form-group">
+        <label>Marital Status</label>
+        <select name="marital_status" required>
+          <option value="">Select one...</option>
+          <option>Married</option>
+          <option>Engaged</option>
+          <option>Single</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>If Married, Spouse's Name (Optional)</label>
+        <input type="text" name="spouse_name" placeholder="Spouse's first and last name">
+      </div>
+
+      <div class="form-group">
+        <label>Church Home (Optional)</label>
+        <input type="text" name="church" placeholder="Name of your church or fellowship">
+      </div>
+
+      <div class="form-group">
+        <label>Areas of Interest (Select All That Apply)</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="interest[]" value="Mentor Couple"> Mentor Couple</label>
+          <label><input type="checkbox" name="interest[]" value="Class Facilitator"> Class Facilitator</label>
+          <label><input type="checkbox" name="interest[]" value="Social Media & Content"> Social Media &amp; Content</label>
+          <label><input type="checkbox" name="interest[]" value="Events & Outings"> Events &amp; Outings</label>
+          <label><input type="checkbox" name="interest[]" value="Prayer Team"> Prayer Team</label>
+          <label><input type="checkbox" name="interest[]" value="General Volunteer"> General Volunteer — I'm open to wherever I'm needed</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Tell Us About Yourself</label>
+        <textarea name="about" placeholder="Share a little about your background, your faith journey, why you're interested in serving with KTC, and any relevant skills or experience you bring..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>How Did You Hear About Us?</label>
+        <select name="referral_source">
+          <option value="">Select one...</option>
+          <option>Facebook</option>
+          <option>Instagram</option>
+          <option>YouTube</option>
+          <option>Friend / Family Referral</option>
+          <option>Church</option>
+          <option>Attended a KTC Class</option>
+          <option>Web Search</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">Submit Application</button>
+    </form>
+
+    <!-- Success message -->
+    <div class="form-success" id="formSuccess">
+      <div class="check">✓</div>
+      <h3>Application Received!</h3>
+      <p>Thank you for your interest in serving with Keep The Covenant. A member of our leadership team will review your submission and reach out within a few days. We're excited to connect with you!</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section style="text-align:center;background:var(--black-soft);padding:4rem 2rem;">
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:1rem;">Not Ready to Volunteer Yet?</h2>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(245,240,232,0.6);margin-bottom:2rem;max-width:550px;margin-left:auto;margin-right:auto;">You can still support our ministry through prayer, donations, or simply attending our free monthly enrichment classes.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+    <a href="rsvp.html" style="display:inline-block;background:var(--gold);color:var(--black);padding:0.8rem 2rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:all 0.3s;">RSVP for a Class</a>
+    <a href="donate.html" style="display:inline-block;background:transparent;color:var(--gold);padding:0.8rem 2rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border:2px solid var(--gold);transition:all 0.3s;">Make a Donation</a>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><span>&copy; 2014–2026 Keep The Covenant. All rights reserved.</span><span>A 501(c)(3) Non-Profit &middot; <a href="contact.html">Contact Us</a></span></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+function toggleMenu(){
+  const nav=document.getElementById('navLinks');
+  const hamburger=document.querySelector('.hamburger');
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('open');
+  document.body.style.overflow=nav.classList.contains('active')?'hidden':'';
+}
+document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('active');
+  document.querySelector('.hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}));
+
+// Form submission handling
+const form = document.getElementById('teamForm');
+const success = document.getElementById('formSuccess');
+if(form){
+  form.addEventListener('submit', function(e){
+    // If using Formspree, let it handle the redirect
+    // If endpoint is still placeholder, show local success
+    if(this.action.includes('YOUR_FORMSPREE_ENDPOINT')){
+      e.preventDefault();
+      this.style.display='none';
+      success.style.display='block';
+      window.scrollTo({top: success.offsetTop - 150, behavior:'smooth'});
+    }
+  });
+}
+</script>
+</body>
+</html>
