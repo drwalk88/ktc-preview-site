@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Enrichment Classes | Keep The Covenant</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C8A84E;--gold-light:#E8D48B;--black:#0A0A0A;--black-soft:#1A1A1A;--black-card:#141414;--cream:#F5F0E8;--white:#FAFAF8;--text-muted:#888}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Montserrat',sans-serif;background:var(--black);color:var(--cream);overflow-x:hidden}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,168,78,0.15);transition:all 0.4s}.nav.scrolled{padding:0.6rem 2rem;background:rgba(10,10,10,0.97)}.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);text-decoration:none}.nav-logo span{display:block;font-family:'Montserrat',sans-serif;font-size:0.55rem;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-top:2px}.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}.nav-links a{color:var(--cream);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;position:relative;transition:color 0.3s}.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width 0.3s}.nav-links a:hover{color:var(--gold)}.nav-links a:hover::after{width:100%}.nav-links a.nav-cta{background:var(--gold);color:var(--black);padding:0.6rem 1.4rem;font-weight:700;letter-spacing:0.1em}.nav-links a.nav-cta::after{display:none}.nav-links a.nav-cta:hover{background:var(--gold-light)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1050;position:relative}.hamburger span{width:28px;height:2px;background:var(--gold)}
+.page-hero{padding:10rem 2rem 4rem;text-align:center;position:relative;overflow:hidden}.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.15}.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3rem);font-weight:900;color:var(--white);margin-bottom:0.5rem;position:relative;z-index:2}.page-hero .tag{font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;position:relative;z-index:2}.page-hero p{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:rgba(245,240,232,0.6);position:relative;z-index:2;max-width:600px;margin:0 auto}
+.container{max-width:900px;margin:0 auto;padding:4rem 2rem}
+.container h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--white);margin-bottom:1rem}
+.container p{font-size:0.95rem;line-height:1.85;color:rgba(245,240,232,0.72);margin-bottom:1.2rem}
+.detail-list{list-style:none;margin:1.5rem 0 2rem}
+.detail-list li{font-size:0.9rem;color:rgba(245,240,232,0.68);padding:0.5rem 0 0.5rem 1.5rem;position:relative;border-bottom:1px solid rgba(200,168,78,0.06)}
+.detail-list li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:0.7rem;top:0.6rem}
+.highlight-box{background:var(--black-card);border:1px solid rgba(200,168,78,0.15);padding:2rem;margin:2rem 0}
+.highlight-box h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);margin-bottom:0.6rem}
+.highlight-box p{font-size:0.88rem;line-height:1.7;color:rgba(245,240,232,0.6);margin-bottom:0}
+.btn-primary{display:inline-block;background:var(--gold);color:var(--black);padding:1rem 2.5rem;font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all 0.3s}.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{display:inline-block;background:transparent;color:var(--gold);padding:0.8rem 2rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:2px solid var(--gold);transition:all 0.3s;margin-left:1rem}.btn-outline:hover{background:var(--gold);color:var(--black)}
+.back-link{display:inline-block;margin-bottom:2rem;font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:color 0.3s}.back-link:hover{color:var(--gold-light)}
+.footer{background:var(--black);border-top:1px solid rgba(200,168,78,0.15);padding:3rem 2rem}.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(245,240,232,0.35)}.footer-inner a{color:var(--gold);text-decoration:none}
+/* Mobile Menu */
+
+/* Mobile overlay */
+.mobile-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,10,10,0.99);z-index:1040;flex-direction:column;justify-content:center;align-items:center;padding:2rem;overflow-y:auto}
+.mobile-overlay.open{display:flex}
+.mobile-overlay a{color:var(--cream);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:0.65rem 0;transition:color 0.3s;text-align:center}
+.mobile-overlay a:hover{color:var(--gold)}
+.mobile-overlay a.nav-cta{background:var(--gold);color:var(--black);padding:0.8rem 2.5rem;font-weight:700;letter-spacing:0.12em;margin-top:0.8rem;display:inline-block}
+.mobile-overlay a.nav-cta:hover{background:var(--gold-light)}
+.mobile-overlay .close-label{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem}
+
+@media(max-width:768px){
+.nav{padding:0.8rem 1.2rem}
+.nav-logo{font-size:1.1rem}
+.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,0.99);flex-direction:column;justify-content:center;align-items:center;gap:1.2rem;z-index:1100;padding:2rem;overflow-y:auto}
+.nav-links.active{display:flex}
+.nav-links a{font-size:1rem;letter-spacing:0.12em;padding:0.5rem 0}
+.nav-links a::after{display:none}
+.nav-links a.nav-cta{margin-top:0.5rem;padding:0.8rem 2rem;font-size:0.85rem}
+.hamburger{display:flex;z-index:1200}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.footer-inner{flex-direction:column;gap:0.5rem;text-align:center}
+}.hamburger{display:flex}.nav-links.active{display:flex;flex-direction:column;position:fixed;inset:0;background:rgba(10,10,10,0.98);justify-content:center;align-items:center;gap:2rem;z-index:1000}.footer-inner{flex-direction:column;gap:0.5rem;text-align:center}.btn-outline{margin-left:0;margin-top:0.5rem}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">KEEP THE COVENANT<span>Marriage Enrichment</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="events.html">Events</a></li><li><a href="resources.html">Resources</a></li><li><a href="shop.html">Shop</a></li><li><a href="join.html">Join</a></li><li><a href="contact.html">Contact</a></li><li><a href="donate.html">Donate</a></li><li><a href="rsvp.html" class="nav-cta">RSVP</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay">
+  <span class="mob-label">Menu</span>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="events.html">Events</a>
+  <a href="resources.html">Resources</a>
+  <a href="shop.html">Shop</a>
+  <a href="join.html">Join</a>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="rsvp.html" class="nav-cta">RSVP</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&q=80')"></div>
+  <div class="tag">Free · Virtual · 8–10 Classes Per Year</div>
+  <h1>Monthly Enrichment Classes</h1>
+  <p>Our signature marriage enrichment experience</p>
+</section>
+
+<div class="container">
+<a href="services.html" class="back-link">← Back to All Services</a>
+<h2>What to Expect</h2>
+<p>Our monthly enrichment classes are the heart of Keep The Covenant. These free virtual sessions are open to all married couples — no membership, no fees, no catch. Each class is designed to be engaging, practical, and grounded in biblical truth.</p>
+<p>We host 8–10 classes per year, and each one focuses on a specific marriage topic. Whether it's communication, conflict resolution, finances, intimacy, or faith — you'll walk away with real tools you can apply to your relationship that same week.</p>
+
+<div class="highlight-box">
+  <h3>Each Class Includes</h3>
+  <ul class="detail-list">
+    <li>An engaging lesson on a relevant marriage topic led by our facilitators</li>
+    <li>Interactive couple activities and discussion prompts</li>
+    <li>Small group breakout sessions with other couples</li>
+    <li>Fun games, icebreakers, and community building</li>
+    <li>Raffles, romantic giveaways, and prizes</li>
+    <li>Video content, testimonials, and real-life stories</li>
+  </ul>
+</div>
+
+<h2>Who Is This For?</h2>
+<p>Every married couple — whether you've been married 6 months or 36 years. Our classes are designed for couples ages 25–45, but we welcome all ages. You don't need to attend every session; join whenever you can and bring a friend couple!</p>
+
+<h2>How to Join</h2>
+<p>Classes are held virtually via Zoom. Simply RSVP and we'll send you the link, date, and topic details before each session.</p>
+
+<a href="rsvp.html" class="btn-primary">RSVP for the Next Class</a>
+<a href="events.html" class="btn-outline">View Upcoming Events</a>
+</div>
+
+<section style="text-align:center;background:var(--black-soft);padding:4rem 2rem;">
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);margin-bottom:1rem;">Explore All Our Services</h2>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(245,240,232,0.6);margin-bottom:2rem;">Discover everything Keep The Covenant offers to strengthen your marriage.</p>
+  <a href="services.html" class="btn-primary" style="padding:0.8rem 2rem;font-size:0.8rem;">View All Services</a>
+</section>
+
+<footer class="footer"><div class="footer-inner"><span>&copy; 2014–2026 Keep The Covenant. All rights reserved.</span><span>A 501(c)(3) Non-Profit &middot; <a href="contact.html">Contact Us</a></span></div></footer>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)});
+function toggleMenu(){
+  const overlay=document.getElementById('mobileOverlay');
+  const hamburger=document.querySelector('.hamburger');
+  const isOpen=overlay.classList.contains('open');
+  overlay.classList.toggle('open');
+  hamburger.classList.toggle('open');
+  document.body.style.overflow=isOpen?'':'hidden';
+}
+document.querySelectorAll('.mobile-overlay a').forEach(l=>l.addEventListener('click',()=>{
+  document.getElementById('mobileOverlay').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}));
+</script>
+</body>
+</html>
